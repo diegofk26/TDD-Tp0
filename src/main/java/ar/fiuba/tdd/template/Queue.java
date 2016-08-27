@@ -1,8 +1,5 @@
 package ar.fiuba.tdd.template;
 
-/**
- * Created by diego on 8/26/16.
- */
 public class Queue<T> {
 
     LinkedList listOfItems;
@@ -11,30 +8,29 @@ public class Queue<T> {
         listOfItems = new LinkedList();
     }
 
-    /*
+
     boolean isEmpty(){
         return size() == 0;
     }
 
 
     int size(){
-        //return listOfItems.size();
+        return listOfItems.size();
 
     }
 
     void add(T item) // agregar un item
     {
-        //listOfItems.addFirst(item);
+        listOfItems.addFirst(item);
     }
 
-    T top()// retornar el primer item, lanzar exception si esta vacío.
-    {
-        //return listofItems.
+    T top() throws AssertionError {
+        return (T) listOfItems.getLast();
 
     }
-    void remove() // remover el primer item, lanzar exception si esta vacío.
-    {
 
+    void remove() throws AssertionError{
+        listOfItems.removeLast();
     }
-    */
+
 }

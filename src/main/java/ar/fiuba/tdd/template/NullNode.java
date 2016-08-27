@@ -7,7 +7,9 @@ public class NullNode implements Node{
         next.setNext(this);
     }
 
-    public void setData( Object data){};
+    public void setData( Object data){
+
+    }
 
     public Node getNext(){
         return this;
@@ -17,17 +19,29 @@ public class NullNode implements Node{
         return null;
     }
 
+    @Override
+    public void removeLast() throws AssertionError {
+        throw new AssertionError();
+    }
 
     public int amountOfNodesFromThis(){
         return 0;
     }
 
-    public Object getLast(){
-        return null;
+    public Object getLastData() throws AssertionError{
+        throw new AssertionError();
     }
 
     public Node searchLast(Node node){
         return node;
     }
 
+    public void iterateToRemoveLastNode(Node first,Node middle) {
+        middle.deleteYourselfIfYouAreTheLastNode(first,this);
+    }
+
+    @Override
+    public void deleteYourselfIfYouAreTheLastNode(Node first, Node nullNode) {
+        first = nullNode;
+    }
 }

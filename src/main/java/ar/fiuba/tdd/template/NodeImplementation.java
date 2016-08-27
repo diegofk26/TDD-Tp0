@@ -3,8 +3,12 @@ package ar.fiuba.tdd.template;
 
 public class NodeImplementation implements Node {
 
-    Node next = null;
-    Object data;
+    private Node next = null;
+    private Object data;
+
+    public NodeImplementation(){
+        this.next = new NullNode();
+    }
 
     public NodeImplementation( Node next){
         this.next = next;
@@ -30,7 +34,7 @@ public class NodeImplementation implements Node {
         return 1 + next.amountOfNodesFromThis();
     }
 
-    public Object getLast(){
+    public Object getLastData(){
         return (this.searchLast(this)).getData();
     }
 
@@ -38,10 +42,15 @@ public class NodeImplementation implements Node {
         return node.getNext().searchLast(this);
     }
 
-    public void addLast(){
-            
+    public void removeLast(){
+        (this.getNext()).getNext().iterateToRemoveLastNode(this,this.getNext());
     }
 
+    public void iterateToRemoveLastNode(Node first, Node middle){
+        this.getNext().iterateToRemoveLastNode(middle,this);
+    }
 
-
+    public void deleteYourselfIfYouAreTheLastNode(Node first,Node nullNode) {
+        first.setNext(nullNode);
+    }
 }

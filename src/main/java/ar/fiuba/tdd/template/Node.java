@@ -3,18 +3,23 @@ package ar.fiuba.tdd.template;
 
 public interface Node {
 
-    public void setNext(Node next);
+    void setNext(Node next);
 
-    public void setData(Object data);
+    void setData(Object data);
 
-    public Node getNext();
+    Node getNext();
 
-    public Object getData();
+    Object getData();
 
-    public int amountOfNodesFromThis();
+    int amountOfNodesFromThis();
 
-    public Object getLast();
+    void removeLast();
 
-    public Node searchLast(Node node);
-    public void addLast();
+    Object getLastData() throws AssertionError;
+
+    Node searchLast(Node node);
+
+    void iterateToRemoveLastNode(Node first, Node middle);
+
+    void deleteYourselfIfYouAreTheLastNode(Node first,Node nullNode);
 }

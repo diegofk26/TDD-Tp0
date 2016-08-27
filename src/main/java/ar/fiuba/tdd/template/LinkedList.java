@@ -1,6 +1,5 @@
 package ar.fiuba.tdd.template;
 
-import com.sun.org.apache.xerces.internal.dom.NodeImpl;
 
 public class LinkedList<T> {
 
@@ -16,16 +15,13 @@ public class LinkedList<T> {
     }
 
     public void removeLast(){
-
+        head.removeLast();
     }
 
-    public T getLast(){
-        return (T) head.getLast();
+    public T getLast() throws AssertionError{
+        return (T) head.getLastData();
     }
 
-    public void addLast(T data){
-        head.addLast();
-    }
 
     public void addFirst(T data){
         (head = new NodeImplementation(head)).setData(data);
