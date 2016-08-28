@@ -17,34 +17,65 @@ public class QueueTest {
 
 
     @Test
-    public void theSizeOfAnEmptyQueueMustBeZero() {
-        assertEquals(queue.size(), 0);
-    }
-
-    @Test
-    public void whenICreateAQueueIsEmptyMustBeTrue() {
+    public void whenICreateAQueueMethodIsEmptyMustReturnTrue() {
         assertTrue(queue.isEmpty());
     }
 
     @Test
-    public void tryingToRemoveAnElementFromAnEmptyLQueueMustThrowAnAssertionError(){
-        boolean thrown = false;
-        try { queue.remove(); } catch (AssertionError e) { thrown = true; }
-        assertTrue(thrown);
-    }
-
-    @Test
-    public void tryingToGetAnElementsDataFromAnEmptyLQueueMustThrowAnAssertionError(){
-        boolean thrown = false;
-        try { queue.top(); } catch (AssertionError e) { thrown = true; }
-        assertTrue(thrown);
-    }
-
-    @Test
-    public void addingThreeElementsAndGettingTheTopDataMusReturnTheRightData(){
+    public void theSizeOfAQueueWithThreeElementsMustBeThree() {
         queue.add("Hello");
         queue.add("World");
-        assertEquals(queue.top(),"Hello");
+        queue.add("!!!");
+        assertEquals(queue.size(), 3);
+    }
+
+    @Test
+    public void tryingToRemoveAnElementFromAnEmptyLQueueMustThrowAnAssertionError() {
+        boolean thrown = false;
+        try {
+            queue.remove();
+        } catch (AssertionError e) {
+            thrown = true;
+        }
+        assertTrue(thrown);
+    }
+
+    @Test
+    public void tryingToGetAnElementsDataFromAnEmptyLQueueMustThrowAnAssertionError() {
+        boolean thrown = false;
+        try {
+            queue.top();
+        } catch (AssertionError e) {
+            thrown = true;
+        }
+        assertTrue(thrown);
+    }
+
+    @Test
+    public void addingThreeElementsAndGettingTheTopDataMusReturnTheRightData() {
+        queue.add("Hello");
+        queue.add("World");
+        queue.add("!!!");
+        assertEquals(queue.top(), "Hello");
+    }
+
+    @Test
+    public void addingThreeElementsAndRemovingThemMustMadeOurQueueToBeEmpty() {
+        queue.add("Hello");
+        queue.add("World");
+        queue.add("!!!");
+        queue.remove();
+        queue.remove();
+        queue.remove();
+        assertTrue(queue.isEmpty());
+    }
+
+    @Test
+    public void addingTwoElementsRemovingOneAndAskingForTheTopElementMustReturnTheSecondElementAdded() {
+        queue.add("Hello");
+        queue.add("World");
+        queue.remove();
+        assertEquals(queue.top(), "World");
     }
 
 }
