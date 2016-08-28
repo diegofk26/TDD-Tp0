@@ -7,28 +7,24 @@ import static org.junit.Assert.assertEquals;
 
 
 public class NodeTest {
-
-
     @Test
     public void constructingASingleNodeWithoutNextNodesAndCallingAmountOfNodesFromThisMustReturnOne(){
-        Node node = new NodeImplementation();
+        Node<String> node = new NodeImplementation<String>("Hello");
         assertEquals(node.amountOfNodesFromThis(),1);
     }
 
     @Test
     public void creatingSomeNodesStoringSomeDataAndAskingForTheDataInTheLastNodeMustCoincideWithTheOriginalData(){
-        Node node = new NodeImplementation( new NodeImplementation());
-        node.getNext().setData("Hola");
-        assertEquals(node.getLastData(),"Hola");
+        Node<String> node = new NodeImplementation<String>( new NodeImplementation<String>("Hello"));
+
+        assertEquals(node.getLastData(),"Hello");
     }
 
     @Test
     public void removingTheLastElementAndAskingForTheLastData(){
-        Node node = new NodeImplementation( new NodeImplementation());
-        node.setData("Algo");
-        node.getNext().setData("Hola");
+        Node<String> node = new NodeImplementation<String>( new NodeImplementation<String>("Not Important"));
+        node.setData("Important");
         node.removeLast();
-        assertEquals(node.getLastData(),"Algo");
+        assertEquals(node.getLastData(),"Important");
     }
-
 }

@@ -24,33 +24,33 @@ public class LinkedListTest {
 
     @Test
     public void theSizeOfALinkedListThatContainsOneElementMustBeOne(){
-        LinkedList list = new LinkedList();
-        list.addFirst(new String("alsdkfj"));
+        LinkedList<String> list = new LinkedList<String>();
+        list.addFirst("Word");
         assertEquals(list.size(),1);
     }
 
     @Test
     public void gettingTheLastElementMustBeTheFirstElementThatWeAddIfWeOnlyUseAddFirst(){
-        LinkedList list = new LinkedList<String>();
-        list.addFirst(new String("Hola"));
-        list.addFirst(new String("Como"));
-        list.addFirst(new String("Va"));
-        assertTrue(list.getLast().equals("Hola"));
+        LinkedList<String> list = new LinkedList<String>();
+        list.addFirst("Hello");
+        list.addFirst("How");
+        list.addFirst("Are");
+        assertTrue(list.getLast().equals("Hello"));
     }
     @Test
     public void removingTheLastElementAndThenGettingTheLastElementOfTheList(){
-        LinkedList list = new LinkedList<String>();
-        list.addFirst(new String("Hola"));
-        list.addFirst(new String("Como"));
-        list.addFirst(new String("Va"));
+        LinkedList<String> list = new LinkedList<String>();
+        list.addFirst("Some String");
+        list.addFirst("Important");
+        list.addFirst("Some String");
         list.removeLast();
-        assertTrue(list.getLast().equals("Como"));
+        assertTrue(list.getLast().equals("Important"));
     }
 
 
     public void removingTheOnlyElementOfALinkedListAndAskingIfItsEmptyMustReturnTrue(){
-        LinkedList list = new LinkedList<String>();
-        list.addFirst(new String("Hola"));
+        LinkedList<String> list = new LinkedList<String>();
+        list.addFirst("Hello World");
         list.removeLast();
         assertTrue(list.isEmpty());
     }

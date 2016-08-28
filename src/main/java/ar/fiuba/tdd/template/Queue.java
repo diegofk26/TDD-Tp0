@@ -2,34 +2,34 @@ package ar.fiuba.tdd.template;
 
 public class Queue<T> {
 
-    LinkedList listOfItems;
+    LinkedList<T> listOfItems;
 
     public Queue(){
-        listOfItems = new LinkedList();
+        listOfItems = new LinkedList<T>();
     }
 
 
-    boolean isEmpty(){
+    public boolean isEmpty(){
         return size() == 0;
     }
 
 
-    int size(){
+    public int size(){
         return listOfItems.size();
 
     }
 
-    void add(T item) // agregar un item
+    public void add(T item)
     {
         listOfItems.addFirst(item);
     }
 
-    T top() throws AssertionError {
-        return (T) listOfItems.getLast();
+    public T top() throws AssertionError {
+        return listOfItems.getLast();
 
     }
 
-    void remove() throws AssertionError{
+    public void remove() throws AssertionError{
         listOfItems.removeLast();
     }
 

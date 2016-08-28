@@ -1,25 +1,25 @@
 package ar.fiuba.tdd.template;
 
 
-public interface Node {
+public interface Node<T> {
 
-    void setNext(Node next);
+    void setNext(Node<T> next);
 
-    void setData(Object data);
+    void setData(T data);
 
-    Node getNext();
+    Node<T> getNext();
 
-    Object getData();
+    T getData();
 
     int amountOfNodesFromThis();
 
     void removeLast();
 
-    Object getLastData() throws AssertionError;
+    T getLastData() throws AssertionError;
 
-    Node searchLast(Node node);
+    Node<T> searchLast(Node<T> previousNode);
 
-    void iterateToRemoveLastNode(Node first, Node middle);
+    void iterateToRemoveLastNode(Node<T> prePreviousNode, Node<T> previousNode);
 
-    void deleteYourselfIfYouAreTheLastNode(Node first,Node nullNode);
+    void deleteYourselfIfYouAreTheLastNode(Node<T> previousNode,Node<T> nullNode);
 }

@@ -3,7 +3,7 @@ package ar.fiuba.tdd.template;
 
 public class LinkedList<T> {
 
-    private Node head;
+    private Node<T> head;
 
 
     public LinkedList(){
@@ -24,7 +24,7 @@ public class LinkedList<T> {
 
 
     public void addFirst(T data){
-        (head = new NodeImplementation(head)).setData(data);
+        (head = new NodeImplementation<T>(head)).setData(data);
     }
 
     public int size(){

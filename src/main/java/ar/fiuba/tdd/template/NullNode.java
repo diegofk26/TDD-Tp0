@@ -1,25 +1,21 @@
 package ar.fiuba.tdd.template;
 
 
-public class NullNode implements Node{
+public class NullNode<T> implements Node<T>{
 
-    public void setNext(Node next){
-        next.setNext(this);
+    public void setNext(Node<T> next){
     }
 
-    public void setData( Object data){
+    public void setData( T data){}
 
-    }
-
-    public Node getNext(){
+    public Node<T> getNext(){
         return this;
     }
 
-    public Object getData(){
+    public T getData(){
         return null;
     }
 
-    @Override
     public void removeLast() throws AssertionError {
         throw new AssertionError();
     }
@@ -28,20 +24,19 @@ public class NullNode implements Node{
         return 0;
     }
 
-    public Object getLastData() throws AssertionError{
+    public T getLastData() throws AssertionError{
         throw new AssertionError();
     }
 
-    public Node searchLast(Node node){
-        return node;
+    public Node<T> searchLast(Node<T> previousNode){
+        return previousNode;
     }
 
-    public void iterateToRemoveLastNode(Node first,Node middle) {
-        middle.deleteYourselfIfYouAreTheLastNode(first,this);
+    public void iterateToRemoveLastNode(Node<T> prePrevious,Node<T> previous) {
+        previous.deleteYourselfIfYouAreTheLastNode(prePrevious,this);
     }
 
-    @Override
-    public void deleteYourselfIfYouAreTheLastNode(Node first, Node nullNode) {
-        first = nullNode;
+    public void deleteYourselfIfYouAreTheLastNode(Node<T> previousNode, Node<T> nullNode) {
+        previousNode = nullNode;
     }
 }
