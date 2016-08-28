@@ -10,14 +10,6 @@ public class NodeImplementation<T> implements Node<T> {
         this.data = data;
     }
 
-    public NodeImplementation( Node<T> next){
-        this.next = next;
-    }
-
-    public void setData(T data){
-        this.data = data;
-    }
-
     public void setNext(Node<T> next){
         this.next = next;
     }
@@ -34,23 +26,8 @@ public class NodeImplementation<T> implements Node<T> {
         return 1 + next.amountOfNodesFromThis();
     }
 
-    public T getLastData(){
-        return searchLast(this).getData();
+    public void append(Node<T> newNode, Node<T> previousNode){
+        next.append(newNode,this);
     }
 
-    public Node<T> searchLast(Node<T> previousNode){
-        return previousNode.getNext().searchLast(this);
-    }
-
-    public void removeLast(){
-        (this.getNext()).getNext().iterateToRemoveLastNode(this,this.getNext());
-    }
-
-    public void iterateToRemoveLastNode(Node<T> prePrevious, Node<T> previous){
-        this.getNext().iterateToRemoveLastNode(previous,this);
-    }
-
-    public void deleteYourselfIfYouAreTheLastNode(Node<T> previous,Node<T> nullNode) {
-        previous.setNext(nullNode);
-    }
 }
