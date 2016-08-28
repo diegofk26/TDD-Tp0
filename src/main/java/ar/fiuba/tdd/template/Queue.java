@@ -4,22 +4,21 @@ public class Queue<T> {
 
     List<T> listOfItems;
 
-    public Queue(){
+    public Queue() {
         listOfItems = new LinkedList<T>();
     }
 
 
-    public boolean isEmpty(){
-        return size() == 0;
+    public boolean isEmpty() {
+        return listOfItems.isEmpty();
     }
 
 
-    public int size(){
+    public int size() {
         return listOfItems.size();
     }
 
-    public void add(T item)
-    {
+    public void add(T item) {
         listOfItems.append(item);
     }
 
@@ -28,7 +27,7 @@ public class Queue<T> {
         return listOfItems.getFirst();
     }
 
-    public void remove() throws AssertionError{
+    public void remove() throws AssertionError {
         listOfItems.removeFirst();
     }
 
