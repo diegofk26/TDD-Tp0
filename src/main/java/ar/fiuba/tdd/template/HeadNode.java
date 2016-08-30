@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.template;
 
-public class HeadNode<T> implements Node<T> {
+class HeadNode<T> implements Node<T> {
 
-    private Node<T> next = new NullNode<T>();
+    private Node<T> next = new NullNode<>();
 
     public void setNext(Node<T> next) {
         this.next = next;
@@ -17,7 +17,7 @@ public class HeadNode<T> implements Node<T> {
     }
 
     public int amountOfNodesFromThis() {
-        return 0 + next.amountOfNodesFromThis();
+        return next.amountOfNodesFromThis();
     }
 
     public void append(Node<T> newNode, Node<T> currentNode) {

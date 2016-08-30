@@ -1,21 +1,20 @@
 package ar.fiuba.tdd.template;
 
 
-public class LinkedList<T> implements List<T> {
+class LinkedList<T> implements List<T> {
 
     private Node<T> head;
 
-    public LinkedList() {
-        head = new HeadNode<T>();
+    LinkedList() {
+        head = new HeadNode<>();
     }
 
     public boolean isEmpty() {
         return size() == 0;
     }
 
-
     public void append(T data) {
-        head.append(new NodeImplementation<T>(data), head);
+        head.append(new NodeImplementation<>(data), head);
     }
 
     public int size() {

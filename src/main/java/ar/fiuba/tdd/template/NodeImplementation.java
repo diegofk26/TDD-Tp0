@@ -1,12 +1,12 @@
 package ar.fiuba.tdd.template;
 
 
-public class NodeImplementation<T> implements Node<T> {
+class NodeImplementation<T> implements Node<T> {
 
-    private Node<T> next = new NullNode<T>();
+    private Node<T> next = new NullNode<>();
     private T data;
 
-    public NodeImplementation(T data) {
+    NodeImplementation(T data) {
         this.data = data;
     }
 

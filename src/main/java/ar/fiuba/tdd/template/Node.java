@@ -1,7 +1,7 @@
 package ar.fiuba.tdd.template;
 
 
-public interface Node<T> {
+interface Node<T> {
 
     void setNext(Node<T> next);
 

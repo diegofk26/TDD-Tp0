@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.template;
 
-public interface List<T> {
+interface List<T> {
 
     boolean isEmpty();
 
