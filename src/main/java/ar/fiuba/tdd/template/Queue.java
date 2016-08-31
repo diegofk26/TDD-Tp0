@@ -1,32 +1,15 @@
 package ar.fiuba.tdd.template;
 
-class Queue<T> {
+interface Queue<T> {
 
-    private List<T> listOfItems;
+    boolean isEmpty();
 
-    Queue() {
-        listOfItems = new LinkedList<>();
-    }
+    int size();
 
-    boolean isEmpty() {
-        return listOfItems.isEmpty();
-    }
+    void add(T item); // agregar un item
 
-    int size() {
-        return listOfItems.size();
-    }
+    T top(); // retornar el primer item, lanzar exception si esta vacío.
 
-    void add(T item) {
-        listOfItems.append(item);
-    }
-
-    T top() throws AssertionError {
-
-        return listOfItems.getFirst();
-    }
-
-    void remove() throws AssertionError {
-        listOfItems.removeFirst();
-    }
+    void remove(); // remover el primer item, lanzar exception si esta vacío.
 
 }

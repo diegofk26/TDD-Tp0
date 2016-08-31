@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 public class QueueTest {
 
-    protected Queue<String> queue = new Queue<String>();
+    protected Queue<String> queue = new LinkedListQueue<String>();
 
     @Rule
     public final ExpectedException exception = ExpectedException.none();
